@@ -6,6 +6,8 @@
 
 # Publish pretty [cucumber](http://cukes.info/) reports
 
+[![Join the chat at https://gitter.im/tommywo/cucumber-reporting](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tommywo/cucumber-reporting?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a Java report publisher primarily created to publish cucumber reports on the Jenkins build server. It publishes pretty html reports showing the results of cucumber runs. It has been split out into a standalone package so it can be used for Jenkins and maven command line as well as any other packaging that might be useful.
 
 ## Background
