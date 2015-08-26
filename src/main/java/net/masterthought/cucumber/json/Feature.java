@@ -23,6 +23,7 @@ public class Feature {
     private String uri;
     private String description;
     private String keyword;
+    private String fileName;
     private Element[] elements;
     private Tag[] tags;
     private StepResults stepResults;
@@ -45,7 +46,13 @@ public class Feature {
         return Sequences.sequence(elements).realise();
     }
 
+
     public String getFileName() {
+        if (fileName==null) setFileName(1);
+        return fileName;
+    }
+
+    public void setFileName(Integer count) {
         List<String> matches = new ArrayList<String>();
         for (String line : Splitter.onPattern("/|\\\\").split(uri)) {
             String modified = line.replaceAll("\\)|\\(", "");
@@ -64,8 +71,13 @@ public class Feature {
             if (splitedJsonFile.length > 1)
                 fileName = fileName + "-" + getDeviceName();
         }
-        fileName = fileName + ".html";
-        return fileName;
+        if (count>1) {
+            this.fileName = fileName + "_" + count.toString() + ".html";
+        }
+        else {
+            this.fileName = fileName + ".html";
+        }
+
     }
 
     public String getUri(){
